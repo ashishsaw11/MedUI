@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Param Medical Agency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: rgb(227, 212, 212);
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #fff5f5;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product {
+            display: inline-block;
+            width: 23%;
+            margin: 1%;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #410ddd;
+        }
+        .wish-icon  {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position:-ms-page;
+            width: 100%;
+            height: 3%;
+            bottom: 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-container input, .form-container textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Added styles for product items in cart */
+        .cart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .product-item {
+            background-color: #f5eeee;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .product-item img {
+            width: 40%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .product-details {
+            text-align: left;
+            padding: 10px;
+        }
+        .product-details h3 {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .product-details p {
+            color: #777;
+            margin: 5px 0;
+        }
+        .remove-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 5px;
+        }
+        .remove-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to PARAM Medical Agency</h1>
+    <br/>
+    <big> Project by ASHISH & SHASHI</big>
+</header>
+
+<nav>
+    <a href="#home" onclick="showSection('home')">Home</a>
+    <a href="#cart" onclick="showSection('cart')">Add to Cart</a>
+    <a href="#wishlist" onclick="showSection('wishlist')">Wishlist</a>
+    <a href="#profile" onclick="showSection('profile')">My Profile</a>
+    <a href="#contact" onclick="showSection('contact')">Contact Us</a>
+    <a href="#register" onclick="showSection('register')">Register</a>
+    <a href="#signin" onclick="showSection('signin')">Sign In</a>
+</nav>
+
+<div id="home" class="container">
+    <h2>Our Products</h2>
+    <div class="product">
+        <a href="paracetamol.html">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.SWthWb5W9t2X2s1RZ-elMQHaHa&pid=Api&P=0&h=180" alt="Paracetamol">
+        </a>
+        <h2>Paracetamol</h2>
+        <p>Price: Rs 10.00</p>
+        <button onclick="addToCart('Paracetamol', 10.00)" style="background-color: #ff9900; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+        <span class="wish-icon" onclick="addToWishlist('Paracetamol')">❤</span>
+    </div>
+    <div class="product">
+        <a href="nicip.html">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.Elj4xzGBLzjp5dmKnCrSTgAAAA&pid=Api&P=0&h=180" alt="nicip tablet">
+        </a>
+        <h2>Nicip</h2>
+        <p>Price: Rs 15.00</p>
+        <button onclick="addToCart('Nicip', 15.00)" style="background-color: #ff9900; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+        <span class="wish-icon" onclick="addToWishlist('Nicip')">❤</span>
+    </div>
+    <div class="product">
+        <a href="azithral.html">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.4WKe0yAOPthjSV1eFG1UlgHaHa&pid=Api&P=0&h=180" alt="Azithral">
+        </a>
+        <h2>Azithral</h2>
+        <p>Price: Rs 20.00</p>
+        <button onclick="addToCart('Azithral', 20.00)" style="background-color: #ff9900; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+        <span class="wish-icon" onclick="addToWishlist('Azithral')">❤</span>
+    </div>
+    <div class="product">
+        <a href="dolo.html">
+            <img src="https://tse2.mm.bing.net/th?id=OIP._vLCl-tSjABFhpWiasE2JAHaIX&pid=Api&P=0&h=180" alt="Dolo">
+        </a>
+        <h2>Dolo</h2>
+        <p>Price: Rs 25.00</p>
+        <button onclick="addToCart('Dolo', 25.00)" style="background-color: #ff9900; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Add to Cart</button>
+        <span class="wish-icon" onclick="addToWishlist('Dolo')">❤</span>
+    </div>
+</div>
+
+<div id="cart" class="container hidden">
+    <h2>Your Cart</h2>
+    <div class="cart-container" id="cartItems">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+</div>
+
+<div id="wishlist" class="container hidden">
+    <h2>Your Wishlist</h2>
+    <div class="cart-container" id="wishlistItems">
+        <!-- Wishlist items will be dynamically added here -->
+    </div>
+</div>
+
+<div id="profile" class="container hidden">
+    <h2>My Profile</h2>
+    <p>Welcome to your profile. Manage your account here.</p>
+    <div id="userProfile">
+        <!-- User profile information will appear here -->
+    </div>
+</div>
+
+
+<div id="contact" class="container hidden">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:sawashishkumar327@gmail.com">sawashishkumar327@gmail.com</a></p>
+    <p>Email: <a href="mailto:aryanshashi31@gmail.com">aryanshashi31@gmail.com</a></p>
+    <p>Phone:  9004213016 , 7482947099</p>
+    <div class="form-container">
+        <form id="contactForm" onsubmit="return false;">
+            <label for="issue">Describe Your Issue:</label>
+            <textarea id="issue" name="issue" rows="4" required></textarea>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+            <button onclick="submitIssue()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="register" class="container hidden">
+    <h2>Register</h2>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form>
+            <label for="regName">Name:</label>
+            <input type="text" id="regName" name="regName" required>
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="regEmail" required>
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+<div id="signin" class="container hidden">
+    <h2>Sign In</h2>
+    <div class="form-container">
+        <h2>Sign In Form</h2>
+        <form>
+            <label for="signInEmail">Email:</label>
+            <input type="email" id="signInEmail" name="signInEmail" required>
+            <label for="signInPassword">Password:</label>
+            <input type="password" id="signInPassword" name="signInPassword" required>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; Created by Ashish & Shashi. All rights reserved.</p>
+</footer>
+
+<script>
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.container').forEach(function (section) {
+            section.classList.add('hidden');
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    function addToCart(productName, productPrice) {
+    const cartItems = document.getElementById('cartItems');
+    const item = document.createElement('div');
+    item.className = 'product-item';
+    item.innerHTML = `
+        <img src="${getProductImage(productName)}" alt="${productName}">
+        <div class="product-details">
+            <h3>${productName}</h3>
+            <p>Price: Rs ${productPrice.toFixed(2)}</p>
+            <button class="remove-btn" onclick="removeFromCart(this)">Remove</button>
+        </div>
+    `;
+    cartItems.appendChild(item);
+    alert(`${productName} added to cart!`);
+}
+
+
+    function removeFromCart(button) {
+        button.closest('.product-item').remove();
+    }
+ // Function to get product image URL based on productName
+ 
+ function addToWishlist(productName) {
+    const wishlistItems = document.getElementById('wishlistItems');
+    const item = document.createElement('div');
+    item.className = 'product-item';
+    item.innerHTML = `
+        <img src="${getProductImage(productName)}" alt="${productName}">
+        <div class="product-details">
+            <h3>${productName}</h3>
+            <button class="remove-btn" onclick="removeFromWishlist(this)">Remove</button>
+        </div>
+    `;
+    wishlistItems.appendChild(item);
+    alert(`${productName} added to wishlist!`);
+}
+
+
+    function removeFromWishlist(button) {
+        button.closest('.product-item').remove();
+    }
+    function getProductImage(productName) {
+        switch(productName) {
+            case 'Paracetamol':
+                return 'https://tse3.mm.bing.net/th?id=OIP.SWthWb5W9t2X2s1RZ-elMQHaHa&pid=Api&P=0&h=180';
+            case 'Nicip':
+                return '/html/nicip.jpeg';
+            case 'Azithral':
+                return 'https://tse4.mm.bing.net/th?id=OIP.4WKe0yAOPthjSV1eFG1UlgHaHa&pid=Api&P=0&h=180';
+            case 'Dolo':
+                return 'https://tse3.mm.bing.net/th?id=OIP.AxQXbzt33ddv2zt0MfBQHgHaE1&pid=Api&P=0&h=180';
+            default:
+                return '';  // Default image URL
+        }
+    }
+    
+</script>
+
+</body>
+</html>
